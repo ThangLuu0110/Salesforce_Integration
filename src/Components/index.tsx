@@ -1,5 +1,12 @@
 import React from 'react';
+import Header from './Module/Header/Header.component';
 
-export const WebContent = () => {
-    return <p>Hello</p>;
+const WebContent = () => {
+    return (
+        <div className="grid">
+            <Header/>
+        </div>
+    );
 }
+
+export default WebContent;

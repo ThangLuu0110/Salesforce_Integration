@@ -1,10 +1,9 @@
 import React from 'react';
-import { WebContent } from './Components/index';
-import './App.css';
+import WebContent from './Components/index';
 
 function App() {
   return (
-    <div className="App">
+    <div className="web-wrapper">
       <WebContent />
     </div>
   );

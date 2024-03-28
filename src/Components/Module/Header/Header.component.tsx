@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import getAuthorizationToken from '../../../api/GetAuthorizationToken.api';
 
 interface HeaderProps {
 

@@ -21,14 +21,14 @@ export function getAuthorizationToken(){
     
     return fetch('https://vtivietnam3-dev-ed.develop.my.salesforce.com/services/oauth2/token', options)
         .then(response => response.json())
-        .then(responseToken => console.log(responseToken['access_token']))
+        .then(responseToken => responseToken['access_token'])
 }
 
-export function getRecords(){
-    const queryString = 'SELECT+Id,+Name+FROM+Opportunity';
+export function getRecords(authoToken:string){
+    const queryString = 'SELECT+Id,+Name,+Player_Name__c,+Pace__c,+Shooting__c,+Date_of_Birth__c,+Passing__c,+Dribbling__c+FROM+Chelsea_Players__c';
     const headerData = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 00D2w00000Gm48r!ARkAQFunwsozOvhwqmRoxDc27_kKWbn6K3mG2hWPaxC1voZOXQ1DMNVfZVe17d_Sc21lmPUQjPXTvYCLB9dEYNwOX8.lobho'
+        'Authorization': 'Bearer ' + authoToken
     }
 
     const options = {
@@ -37,6 +37,6 @@ export function getRecords(){
     };
 
     return fetch('https://vtivietnam3-dev-ed.develop.my.salesforce.com/services/data/v60.0/query?q=' + queryString, options)
-        .then(response => console.log(response.json()))
+        .then(response => response.json())
 }
 

@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import Header from './Module/Header/Header.component';
+import {Route, Routes} from 'react-router-dom';
+import SquadListPage from './Module/Body/SquadListPage.component';
+import TeamFormationPage from './Module/Body/TeamFormationPage.component';
+import HomePage from './Module/Body/HomePage.component';
 
 enum ActiveTab {
     Home,
@@ -26,6 +30,11 @@ const WebContent = () => {
                 handleActiveTab={handleActiveTab}
                 pathname={window.location.pathname}
             />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/squadlist" element={<SquadListPage handleActiveTab={handleActiveTab}/>} />
+                <Route path="/teamformation" element={<TeamFormationPage />} />
+            </Routes>
         </div>
     );
 }

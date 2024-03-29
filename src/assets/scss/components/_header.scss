@@ -6,6 +6,59 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 30px;
+
+      &__title {
+        font-size: 1.5rem;
+        color: $main-color;
+        margin-left: 1rem;
+        font-weight: bold;
+      }
+
+      &__navbar {
+        &-item {
+          display: inline-block;
+          text-align: center;
+          margin-left: 70px;
+          font-size: 1rem;
+          cursor: pointer;
+          position: relative;
+          
+          .item-text {
+            color: $main-color;
+          }
+  
+          .dot {
+            position: absolute;
+            left: calc(50% - 25px);
+            background-color: $main-color;
+            bottom: -15px;
+            height: 3px;
+            border-radius: 2px;
+            transition: font-size 0.5s ease;
+          }
+  
+          &.active {
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation-duration: 0.5s;
+  
+            .dot {
+              width: 50px;
+              animation-name: tabActive;
+              animation-duration: 0.5s;
+            }
+  
+            @keyframes tabActive {
+              from {
+                width: 0px;
+              }
+  
+              to {
+                width: 50px;
+              }
+            }
+          }
+        }
+      }
     }
-    
   }

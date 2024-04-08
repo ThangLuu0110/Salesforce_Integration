@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {getAuthorizationToken, getRecords} from "../../../api/GetAuthorizationToken.api";
 import {PlayerInformation} from "../../../common/constants";
+import {DataTableComponent} from "../../../common/DataTable.component";
 
 interface SquadlistProps{
     handleActiveTab: (e: any) => void;
@@ -31,7 +32,7 @@ export default class SquadListPage extends Component<SquadlistProps>{
     render() {
         return (
             <div className="container grid">
-                
+                <DataTableComponent/>
             </div>
         )
     }

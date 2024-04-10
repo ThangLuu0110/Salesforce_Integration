@@ -1,19 +1,34 @@
-import React from "react";
+import React, {Component} from "react";
 import DataTable from "react-data-table-component";
-import {COLUMNS} from "./constants";
-import PLAYER_MOCK_DATA from "../assets/mockup_data/PLAYER_MOCK_DATA.json"
+import {COLUMNS, PlayerInformation} from "./constants";
 
-export const DataTableComponent = () => {
-    return (
-        <div className="grid wide">
-            <DataTable
-                title="Player List"
-                columns={COLUMNS}
-                data={PLAYER_MOCK_DATA}
-                responsive={true}
-                highlightOnHover={true}
-                pagination={true}
-            />
-        </div>
-    )
+interface DataTableComponentProps{
+    dataList: PlayerInformation[]
+}
+
+const customStyles = {
+    headCells: {
+		style: {
+			fontWeight: "bold",
+            fontSize: "1rem"
+		},
+	},
+}
+export default class DataTableComponent extends Component<DataTableComponentProps>{
+    render(){
+        return (
+            <div className="grid wide">
+                <DataTable
+                    title="Player List"
+                    columns={COLUMNS}
+                    data={this.props.dataList}
+                    customStyles={customStyles}
+                    responsive={true}
+                    highlightOnHover={true}
+                    pagination={true}
+                    onRowClicked={() => console.log('Row clicked')}
+                />
+            </div>
+        )
+    }
 }

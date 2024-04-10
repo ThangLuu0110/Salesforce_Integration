@@ -20,37 +20,39 @@ export interface PlayerInformationDetail {
 }
 
 export interface PlayerInformation {
-    id: number;
-    name: string;
-    player_name__c: string;
-    player_age__c: string;
-    nationality__c: string;
-    player_position__detail__c: string;
-    date_of_birth__c: string;
+    Id: number;
+    Name: string;
+    Player_Name__c: string;
+    Player_Age__c: number;
+    Nationality__c: string;
+    Player_Position_Detail__c: string;
+    Date_Of_Birth__c: string;
 }
 
 export const COLUMNS = [
     {
         name: 'Player Name',
-        selector: (row: {player_name__c: string;}) => row.player_name__c,
-        sortable: true
+        selector: (row: {Player_Name__c: string;}) => row.Player_Name__c,
+        sortable: true,
+        left: true,
+
     },
     {
         name: 'Age',
-        selector: (row: {player_age__c: number;}) => row.player_age__c,
+        selector: (row: {Player_Age__c: number;}) => row.Player_Age__c,
         
     },
     {
         name: 'Nationality',
-        selector: (row: {nationality__c: string;}) => row.nationality__c,
+        selector: (row: {Nationality__c: string;}) => row.Nationality__c,
     
     },
     {
         name: 'Date Of Birth',
-        selector: (row: {date_of_birth__c: string;}) => row.date_of_birth__c,
+        selector: (row: {Date_Of_Birth__c: string;}) => row.Date_Of_Birth__c,
     },
     {
         name: 'Position',
-        selector: (row: {player_position_detail__c: string;}) => row.player_position_detail__c,
+        selector: (row: {Player_Position_Detail__c: string;}) => row.Player_Position_Detail__c,
     }
 ];

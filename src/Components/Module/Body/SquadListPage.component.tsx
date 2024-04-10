@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {getAuthorizationToken, getRecords} from "../../../api/GetAuthorizationToken.api";
 import {PlayerInformation} from "../../../common/constants";
-import {DataTableComponent} from "../../../common/DataTable.component";
+import DataTableComponent from "../../../common/DataTable.component";
 
 interface SquadlistProps{
     handleActiveTab: (e: any) => void;
@@ -10,7 +10,6 @@ interface SquadlistProps{
 interface SquadListState{
     playerList: PlayerInformation[]
 }
-
 export default class SquadListPage extends Component<SquadlistProps>{
     state = {
         playerList: []
@@ -24,7 +23,7 @@ export default class SquadListPage extends Component<SquadlistProps>{
             this.setState({
                 ...this.state,
                 playerList: playerInfor.records,
-            }, () => {})
+            }, () => console.log(this.state.playerList));
         })
     }
 
@@ -32,7 +31,7 @@ export default class SquadListPage extends Component<SquadlistProps>{
     render() {
         return (
             <div className="container grid">
-                <DataTableComponent/>
+                <DataTableComponent dataList={this.state.playerList}/>
             </div>
         )
     }

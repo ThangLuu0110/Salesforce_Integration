@@ -24,8 +24,24 @@ export function getAuthorizationToken(){
         .then(responseToken => responseToken['access_token'])
 }
 
+export function getListDetailPosition(authoToken:string){
+    const queryString:string = 'SELECT+Label,+Value+FROM+PicklistValueInfo+WHERE+EntityParticle.EntityDefinition.QualifiedApiName+=+\'Chelsea_Players__c\'+AND+EntityParticle.QualifiedApiName+=+\'Player_Position_Detail__c\'+and+isActive+=+true'
+    const headerData = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + authoToken
+    }
+
+    const options = {
+        method: 'GET',
+        headers: headerData,
+    };
+
+    return fetch('https://vtivietnam3-dev-ed.develop.my.salesforce.com/services/data/v60.0/query?q=' + queryString, options)
+        .then(response => response.json())
+}
+
 export function getRecords(authoToken:string){
-    const queryString = 'SELECT+Id,+Name,+Player_Name__c,+Pace__c,+Shooting__c,+Date_of_Birth__c,+Passing__c,+Dribbling__c+FROM+Chelsea_Players__c';
+    const queryString:string = 'SELECT+Id,+Name,+Player_Name__c,+Pace__c,+Shooting__c,+Date_of_Birth__c,+Passing__c,+Dribbling__c+FROM+Chelsea_Players__c';
     const headerData = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + authoToken

@@ -1,3 +1,16 @@
 .homepage{
     
+    &__stadium{
+        background-color: $main-color;
+        padding: 10px;
+        height: calc(100vh - 200px);
+        display: grid;
+        grid-template-columns: 1fr 1200px 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+
+        &--information{
+            background-color:white;
+        }
+    }
 }

@@ -29,6 +29,11 @@ export interface PlayerInformation {
     Date_Of_Birth__c: string;
 }
 
+export interface DetailPositionInformation {
+    Label: string;
+    Value: string;
+}
+
 export const COLUMNS = [
     {
         name: 'Player Name',

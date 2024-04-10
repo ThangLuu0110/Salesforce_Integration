@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import DataTable from "react-data-table-component";
 import {COLUMNS, PlayerInformation} from "./constants";
+import SearchTable from "./SearchTable.component";
 
 interface DataTableComponentProps{
     dataList: PlayerInformation[]
@@ -19,7 +20,6 @@ export default class DataTableComponent extends Component<DataTableComponentProp
         return (
             <div className="grid wide">
                 <DataTable
-                    title="Player List"
                     columns={COLUMNS}
                     data={this.props.dataList}
                     customStyles={customStyles}

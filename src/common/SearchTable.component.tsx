@@ -9,7 +9,7 @@ interface SearchTableProps{
 export default class SearchTableComponent extends Component<SearchTableProps>{
     render(){
         return (
-            <div>
+            <div className='search-table grid wide'>
                 <Formik
                     initialValues={{
                         playerName: '',
@@ -17,7 +17,9 @@ export default class SearchTableComponent extends Component<SearchTableProps>{
                         position: '',
 
                     }}
-                    onSubmit={() => {}}
+                    onSubmit={(values) => {
+                        console.log(values)
+                    }}
                 >
                     <Form>
                         <label htmlFor="playerName">Player Name: </label>
@@ -28,7 +30,10 @@ export default class SearchTableComponent extends Component<SearchTableProps>{
 
                         <label htmlFor="position">Position: </label>
                         <Field id="position" name="position" component="select">
-                            {this.props.detailPositionList.map(())}
+                            <option value="">None</option>
+                            {this.props.detailPositionList.map((position, index) => (
+                                <option key={index} value={position.Value}>{position.Label}</option>
+                            ))}
                         </Field>
 
                         <button type="submit">Submit</button>

@@ -1,68 +1,56 @@
 .search-table {
-    height: 100px;
-    padding: 10px;
+    height: 150px;
+    padding: 20px;
     
     form {
         display: grid;
-        grid-template-columns: 100px auto 70px auto 58px;
-        grid-gap: 0.5rem;
-        
-        .search__label {
-            font-size: 1rem;
-            font-weight: bold;
+        grid-template-columns: 1fr 1fr 100px;
+        grid-gap: 1rem;
 
-            &.nationality {
+        .search-component{
+            display: grid;
+            grid-template-columns: 100px 1fr;
+
+            &.name {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            &.age{
+                grid-template-columns: 100px 1fr 1fr;
                 grid-row-start: 2;
                 grid-row-end: 3;
-                grid-column-start: 1;
-                grid-column-end: 2;
+            }
+
+            &.nationality {
+                grid-row-start: 3;
+                grid-row-end: 4;
             }
 
             &.position {
                 grid-row-start: 2;
                 grid-row-end: 3;
-                grid-column-start: 3;
-                grid-column-end: 4;
-            }
-        }
-
-        input {
-            height: 1.5rem;
-
-            &#playerName {
-                grid-row-start: 1;
-                grid-row-end: 2;
-                grid-column-start: 2;
-                grid-column-end: 5;
             }
 
-            &#nationality {
-                grid-row-start: 2;
-                grid-row-end: 3;
-                grid-column-start: 2;
-                grid-column-end: 3;
+            &.positionDetail {
+                grid-row-start: 3;
+                grid-row-end: 4;
             }
-        }
 
-        select{
-            grid-row-start: 2;
-            grid-row-end: 3;
-            grid-column-start: 4;
-            grid-column-end: 5;
-        }
+            &__label{
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
 
-        .search__button {
-            grid-row-start: 1;
-            grid-row-end: 3;
-            grid-column-start: 5;
-            grid-column-end: 6;
-
-            button{
-                height: 100%;
-                width: 58px;
-                border-radius: 50%;
-                border: none
+            input {
+                height: 1.5rem;
             }
         }
     }
 }
+
+
+
+
+
+

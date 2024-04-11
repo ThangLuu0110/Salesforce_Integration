@@ -22,21 +22,22 @@ export default class SearchTableComponent extends Component<SearchTableProps>{
                     }}
                 >
                     <Form>
-                        <label htmlFor="playerName">Player Name: </label>
+                        <label className="search__label name" htmlFor="playerName">Player Name: </label>
                         <Field id="playerName" name="playerName" placeholder="Player Name"/>
-
-                        <label htmlFor="nationality">Nationality: </label>
+                    
+                        <label className="search__label nationality" htmlFor="nationality">Nationality: </label>
                         <Field id="nationality" name="nationality" placeholder="Nationality"/>
-
-                        <label htmlFor="position">Position: </label>
+                    
+                        <label className="search__label position" htmlFor="position">Position: </label>
                         <Field id="position" name="position" component="select">
                             <option value="">None</option>
                             {this.props.detailPositionList.map((position, index) => (
                                 <option key={index} value={position.Value}>{position.Label}</option>
                             ))}
                         </Field>
-
-                        <button type="submit">Submit</button>
+                        <div className="search__button">
+                            <button type="submit">Submit</button>
+                        </div>
                     </Form>
                 </Formik>
 

@@ -1,0 +1,20 @@
+.header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: $sidebar-color;
+
+    &-logo {
+        width: 70px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    &-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: $header_text-color;
+    }
+}

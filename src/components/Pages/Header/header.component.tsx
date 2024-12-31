@@ -6,6 +6,7 @@ interface HeaderProps{
 }
 
 export default class Header extends Component<HeaderProps> {
+  pageTitle: string = "Chelsea Football Club";
 
     render() {
       return (
@@ -13,9 +14,7 @@ export default class Header extends Component<HeaderProps> {
             <a href="/">
                 <img src={Logo} alt="logo" className="header-logo"/>
             </a>
-            <span className="header-title">
-                Chelsea Football Club
-            </span>
+            <span className="header-title">{this.pageTitle}</span>
         </div>
       )
     }

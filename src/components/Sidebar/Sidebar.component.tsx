@@ -5,46 +5,50 @@ import { SidebarList } from './SideBarList';
 import { Link } from 'react-router-dom';
 
 interface SidebarProps{
+  activeTab: string;
+  handleActiveTab: (e: any) => void;
 }
 
 interface SidebarState{
-  itemSelected: String;
+  isExpand: boolean;
 }
 
 export default class Sidebar extends Component<SidebarProps> {
   state = {
-    itemSelected: 'Home',
+    isExpand: false,
   } as SidebarState;
 
-  handleSelectItem = (title: string) => {
-    console.log(title);
-    
+  handleExpandSidebar = (e: any) => {
     this.setState({
       ...this.state,
-      itemSelected: title
+      isExpand: !this.state.isExpand
     })
   }
 
   render() {
-
+    const { activeTab, handleActiveTab } = this.props;
+    
     return (
-      <div className="sidebar">
+      <div className={clsx("sidebar", this.state.isExpand && "expanded")}>
         <ul className="sidebar-menu">
           {SidebarList.map((item, index) => {
             return (
-              <li key={index} className={clsx(item.className, this.state.itemSelected === item.title && "active")} 
-                onClick={(e) => {this.handleSelectItem(item.title)}}
+              <li key={index} className={clsx(item.className, activeTab === item.title && "active")} 
+                onClick={(e) => {handleActiveTab(item.title)}}
               >
                 <Link to={item.path}>
                   <span className="nav-text_logo">{item.icon}</span>
-                  <span className="nav-text_title">{item.title}</span>
+                  <span className={clsx("nav-text_title", this.state.isExpand && "expanded")}>{item.title}</span>
                 </Link>
               </li>
             )
           })}
         </ul>
-        <div className="sidebar-button">
-          <FaIcons.FaArrowRight />
+        <div 
+          className={clsx("sidebar-button", this.state.isExpand && "expanded")}
+          onClick={this.handleExpandSidebar}
+        >
+          <FaIcons.FaArrowsAltH />
         </div>
       </div>
     )

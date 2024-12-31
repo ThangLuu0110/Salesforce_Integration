@@ -1,6 +1,5 @@
 import React from "react";
 import * as FaIcons from 'react-icons/fa';
-import * as GiIcons from 'react-icons/gi';
 
 export const SidebarList = [
     {
@@ -10,15 +9,15 @@ export const SidebarList = [
         className: 'nav-text'
     },
     {
-        title: 'Players List',
-        path: '/players-list',
+        title: 'Players',
+        path: '/players',
         icon: <FaIcons.FaList />,
         className: 'nav-text'
     },
     {
         title: 'Formation',
         path: '/formation',
-        icon: <GiIcons.GiSoccerField />,
+        icon: <FaIcons.FaSolarPanel  />,
         className: 'nav-text'
     }
 ]
